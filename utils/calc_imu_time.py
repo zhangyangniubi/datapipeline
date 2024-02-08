@@ -1,7 +1,7 @@
 import pandas as pd
 df = pd.read_csv('./utils/corrimus.csv')
 gps_week = df['Week']
-gps_second = df['Seconds']
+gps_second = df['Seconds']/1000
 df['gps_epoch_second'] = 315964800 + gps_week * 7 * 24 * 60 * 60 + gps_second - 18
 gps_epoch_second = df['gps_epoch_second']
 df = df.drop('gps_epoch_second',axis=1)
